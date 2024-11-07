@@ -18,18 +18,10 @@ def main_menu():
         print("            Can you guide the eggs safely?")
         print("           Let the rolling adventure begin!")
         print("-------------------------------------------------------")
-        print("                🍳 ", end = "")
-        cprint("[S]", "light_blue", attrs = ["bold"], end = "")
-        print(" Start Game   🍳")
-        print("                📜 ", end = "")
-        cprint("[I]", "light_blue", attrs = ["bold"], end = "")
-        print(" Instructions 📜")
-        print("                🏆 ", end = "")
-        cprint("[L]", "light_blue", attrs = ["bold"], end = "")
-        print(" Leaderboards 🏆")
-        print("                🚪 ", end = "")
-        cprint("[E]", "light_blue", attrs = ["bold"], end = "")
-        print(" Exit Game    🚪")
+        print("                🍳 " + colored("[S]", "light_blue", attrs = ["bold"]) + " Start Game   🍳")
+        print("                📜 " + colored("[I]", "light_blue", attrs = ["bold"]) + " Instructions 📜")
+        print("                🏆 " + colored("[L]", "light_blue", attrs = ["bold"]) + " Leaderboards 🏆")
+        print("                🍳 " + colored("[E]", "light_blue", attrs = ["bold"]) + " Exit Game    🚪")
         print("-------------------------------------------------------")
         print("        Please enter a choice and press Enter.")
         print("=======================================================")
@@ -74,5 +66,7 @@ if __name__ == '__main__':
                 count egg, and response is according to the number of eggs (plural/singular)
                 Put the history of moves!
                 when egg goes into the nest in level1.txt, it should say you lost
-                multiple stages / stage selctor (how)
+                multiple stages / stage selctor (idk what this is)
+                "header and footer shouldnt be removed while egg is moving
+                "Thank you for playing screen play
 '''
