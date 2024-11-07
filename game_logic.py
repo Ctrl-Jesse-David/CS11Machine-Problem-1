@@ -126,7 +126,8 @@ def start_game(filename):
         print("=======================================================")
         cprint("            🎉🎉 CONGRATULATIONS! 🎉🎉", "green", attrs = ["bold"])
         print("=======================================================")
-        cprint("  🏆🏅 All eggs safely rolled into their nests! 🏅🏆", attrs = ["bold"])
+        cprint("   🏆🏅 All eggs safely rolled into their nests! 🏅🏆", attrs = ["bold"])
+        print("-------------------------------------------------------\n")
         print(colored("🏆 FINAL SCORE: ", "green", attrs = ["bold"]) + f" {score} 🏆")
         print("-------------------------------------------------------\n")
     else:
@@ -134,6 +135,7 @@ def start_game(filename):
         cprint("              💥😞 You lost! 💥😞 ", "red", attrs = ["bold"])
         print("=======================================================\n")
         print("              better luck next time!", attrs = ["bold"])
+        print("-------------------------------------------------------\n")
         print(colored("🏆 FINAL SCORE: ", "red", attrs = ["bold"]) + f" {score} 🏆")
         print("-------------------------------------------------------\n")
 
