@@ -82,7 +82,7 @@ def start_game(filename):
         # Length of header and footer should be dependent on the size of the column of the gird
         clear_screen()
         print("=======================================================")
-        cprint("              🍳 Egg Roll Challenge 🍳", "blue", attrs = ["bold"])
+        cprint("              🍳 Egg Roll Challenge 🍳", "red", attrs = ["bold"])
         print("=======================================================\n")
         display_grid(grid)
         print("-------------------------------------------------------")
@@ -96,7 +96,7 @@ def start_game(filename):
         print("-------------------------------------------------------")
 
         if move == 'U' and history:
-            grid, moves_left, score = history.pop()
+            grid, num_moves, score = history.pop()
             continue
         elif move == 'E':  # Handle exit here
             while True:
@@ -105,7 +105,7 @@ def start_game(filename):
                     main_menu()  # Go to main menu if they confirm exit
                     return
                 elif double_check == "N":
-                    break  # Exit the confirmation loop and continue the game
+                    break  # Exits the confirmation loop and continue the game
                 else:
                     cprint("Invalid response!", "red", attrs=["bold"])
                     time.sleep(1)
@@ -122,18 +122,28 @@ def start_game(filename):
     
     clear_screen()
     if all_eggs_in_nests:
-        print(colored("Congratulations!", "red", attrs = ["bold"]) + 
-              " All eggs safely rolled into their nests!")
+        print("=======================================================")
+        cprint("            🎉🎉 CONGRATULATIONS! 🎉🎉", "green", attrs = ["bold"])
+        print("=======================================================")
+        cprint("  🏆🏅 All eggs safely rolled into their nests! 🏅🏆", attrs = ["bold"])
+        print(colored("🏆 FINAL SCORE: ", "green", attrs = ["bold"]) + f" {score} 🏆")
+        print("-------------------------------------------------------\n")
     else:
-        print("You lost!")
-    print(f"Final score: {score}")
+        print("=======================================================")
+        cprint("              💥😞 You lost! 💥😞 ", "red", attrs = ["bold"])
+        print("=======================================================\n")
+        print("              better luck next time!", attrs = ["bold"])
+        print(colored("🏆 FINAL SCORE: ", "red", attrs = ["bold"]) + f" {score} 🏆")
+        print("-------------------------------------------------------\n")
+
     display_grid(grid)
+    print("-------------------------------------------------------")
 
     # To store name on Leaderboard
     name = input("Enter your name: ")
     update_leaderboard(name, score)
 
-    while True:
+    while True: # Asking user after the game
         retry_option = input("Retry [R] or Main Menu [M]? ").upper()
         if retry_option == 'R':
             start_game(filename)
