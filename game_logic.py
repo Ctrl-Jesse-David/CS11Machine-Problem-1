@@ -82,17 +82,17 @@ def start_game(filename):
         # Length of header and footer should be dependent on the size of the column of the gird
         clear_screen()
         print("=======================================================")
-        cprint("              🍳 Egg Roll Challenge 🍳", "red", attrs = ["bold"])
+        cprint("              🍳 Egg Roll Challenge 🍳", "blue", attrs = ["bold"])
         print("=======================================================\n")
         display_grid(grid)
         print("-------------------------------------------------------")
-        print(colored("🌟 SCORE       ", "blue", attrs = ["bold"]) + f" :  {score}")
-        print(colored("🎯 PREV MOVE   ", "blue", attrs = ["bold"]) + f" :  {moves}")
-        print(colored("🔢 MOVES LEFT  ", "blue", attrs = ["bold"]) + f" : {num_moves}")
+        print(colored("🔢 MOVES LEFT  ", "blue") + f" : {num_moves}")
+        print(colored("🌟 SCORE       ", "blue") + f" :  {score}")
+        print(colored("🎯 PREV MOVE   ", "blue") + f" :  {moves}")
         print("-------------------------------------------------------")
-        move = input("Enter move " + colored("(L/R/F/B)", "red", attrs = ["bold"]) 
-                     + ", " + colored("[U]", "red", attrs = ["bold"]) + "ndo, or " 
-                     + colored("[E]", "red", attrs = ["bold"]) + "xit: ").upper()
+        move = input("Enter move " + colored("(L/R/F/B)", "blue", attrs = ["bold"]) 
+                     + ", " + colored("[U]", "blue", attrs = ["bold"]) + "ndo, or " 
+                     + colored("[E]", "blue", attrs = ["bold"]) + "xit: ").upper()
         print("-------------------------------------------------------")
 
         if move == 'U' and history:
@@ -114,14 +114,15 @@ def start_game(filename):
             print("Invalid move! Try again.")
             time.sleep(1)
             continue
-        else:
-            history.append((copy_grid(grid), num_moves, score))
-            add_score, all_eggs_in_nests = move_eggs(grid, move)
-            score += add_score
-            num_moves -= 1
+
+        history.append((copy_grid(grid), num_moves, score))
+        add_score, all_eggs_in_nests = move_eggs(grid, move)
+        score += add_score
+        num_moves -= 1
     
     clear_screen()
     if all_eggs_in_nests:
+        score += num_moves # Add remaining moves after the game
         print("=======================================================")
         cprint("            🎉🎉 CONGRATULATIONS! 🎉🎉", "green", attrs = ["bold"])
         print("=======================================================")
