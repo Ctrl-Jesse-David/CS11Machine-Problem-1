@@ -134,7 +134,7 @@ def start_game(filename):
         print("=======================================================")
         cprint("              💥😞 You lost! 💥😞 ", "red", attrs = ["bold"])
         print("=======================================================\n")
-        print("              better luck next time!", attrs = ["bold"])
+        cprint("              better luck next time!", attrs = ["bold"])
         print("-------------------------------------------------------\n")
         print(colored("🏆 FINAL SCORE: ", "red", attrs = ["bold"]) + f" {score} 🏆")
         print("-------------------------------------------------------\n")
