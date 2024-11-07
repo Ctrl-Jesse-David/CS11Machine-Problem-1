@@ -57,7 +57,7 @@ def main_menu():
             display_leaderboard()
 
         elif choice == "E": # To exit the game
-            cprint("Exiting... Thanks for playing!", 'blue')
+            cprint("Exiting... Thanks for playing!", 'red', attrs = ["bold"])
             sys.exit()
 
         else: # If the player's choice isn't in the menu
@@ -72,7 +72,7 @@ if __name__ == '__main__':
 '''Bugs to fix:
                 Egg Roll: Make it roll at the same time
                 count egg, and response is according to the number of eggs (plural/singular)
-                Put the history of moves!sm
-                
+                Put the history of moves!
+                when egg goes into the nest in level1.txt, it should say you lost
                 multiple stages / stage selctor (how)
 '''
