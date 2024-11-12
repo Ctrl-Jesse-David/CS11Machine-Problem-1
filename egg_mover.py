@@ -9,6 +9,7 @@ full_nest = '🪺'
 frying_pan = '🍳'
 
 
+
 def move_eggs(grid, direction): # Egg main moving logic
     score_change = 0
     movement_occurred = True
@@ -19,6 +20,7 @@ def move_eggs(grid, direction): # Egg main moving logic
         'F': (-1, 0),
         'B': (1, 0)
     }
+
     row_offset, column_offset = movement_offsets[direction]
 
     while movement_occurred:
@@ -33,19 +35,18 @@ def move_eggs(grid, direction): # Egg main moving logic
 
             if new_row < 0 or new_row >= len(grid) or new_column < 0 or new_column >= len(grid[0]):
                 continue
-
             elif grid[new_row][new_column] == wall or grid[new_row][new_column] == full_nest:
-                new_positions[(egg_row, egg_column)] = (egg_row, egg_column)
+                continue
             elif grid[new_row][new_column] == empty_nest:
                 grid[new_row][new_column] = full_nest
                 grid[egg_row][egg_column] = grass
                 score_change += 10
                 movement_occurred = True
-            elif grid[new_row][new_column] == frying_pan:
+            elif grid[new_row][new_column] == frying_pan: 
                 grid[egg_row][egg_column] = grass
                 score_change -= 5
                 movement_occurred = True
-            elif grid[new_row][new_column] == grass:
+            elif grid[new_row][new_column] == grass or grid[new_row][new_column] == egg:
                 new_positions[(egg_row, egg_column)] = (new_row, new_column)
                 movement_occurred = True
 
@@ -59,6 +60,6 @@ def move_eggs(grid, direction): # Egg main moving logic
         time.sleep(0.1)
 
         if all(grid[r][c] == full_nest for r, c in egg_positions):
-            return score_change, True
+            return score_change
 
-    return score_change, False
+    return score_change
