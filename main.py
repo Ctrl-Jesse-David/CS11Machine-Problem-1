@@ -19,6 +19,7 @@ def main_menu():
         print("           Let the rolling adventure begin!")
         print("-------------------------------------------------------")
         print("                🍳 " + colored("[S]", "light_blue", attrs = ["bold"]) + " Start Game   🍳")
+                                    # displays all.txt file in the folder as a level where if they pick the level, game starts
         print("                📜 " + colored("[I]", "light_blue", attrs = ["bold"]) + " Instructions 📜")
         print("                🏆 " + colored("[L]", "light_blue", attrs = ["bold"]) + " Leaderboards 🏆")
         print("                🍳 " + colored("[E]", "light_blue", attrs = ["bold"]) + " Exit Game    🚪")
@@ -69,4 +70,6 @@ if __name__ == '__main__':
                 multiple stages / stage selctor (idk what this is)
                 "header and footer shouldnt be removed while egg is moving
                 "Thank you for playing screen play
+
+
 '''
