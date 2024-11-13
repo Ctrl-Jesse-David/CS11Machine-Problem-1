@@ -46,7 +46,7 @@ def move_eggs(grid, direction): # Egg main moving logic
                 grid[egg_row][egg_column] = grass
                 score_change -= 5
                 movement_occurred = True
-            elif grid[new_row][new_column] == grass or grid[new_row][new_column] == egg:
+            elif grid[new_row][new_column] == grass:
                 new_positions[(egg_row, egg_column)] = (new_row, new_column)
                 movement_occurred = True
 
