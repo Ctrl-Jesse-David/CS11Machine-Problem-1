@@ -4,13 +4,25 @@ from animation import egg_rolling_animation_intro
 from utilities import clear_screen
 from options import display_leaderboard, display_instructions, display_levels
 
+''' This file handles the main menu interface of the player '''
+
 def main_menu():
+    '''
+    This function gives the player the option by entering the highlighted letter.
+    The input will either:
+    
+    - Start the game (will proceed to the available game levels)
+    - Display the leaderboard for those who played the game
+    - Show the game's instructions
+    - Exit the game
+    '''
+
     from game_logic import start_game
 
     egg_rolling_animation_intro()
     clear_screen()
 
-    while True: # Main Menu of the User's Interface
+    while True:
         print("=======================================================")
         cprint("          🥚 Welcome to EGG ROLL CHALLENGE 🥚          ", 'light_blue', attrs = ["bold"])
         print("=======================================================")
@@ -25,29 +37,28 @@ def main_menu():
         print("        Please enter a choice and press Enter.")
         print("=======================================================")
 
-        # Gets the player's choice
         choice = input(colored("Select an option: ", "light_blue", attrs = ["bold"])).strip().upper()
 
-        if choice == "S":  # To start the game
-            selected_level = display_levels()  # Function that gets the selected level
+        if choice == "S": 
+            selected_level = display_levels()
             if selected_level:
                 start_game(selected_level)
             else:
                 clear_screen()
 
-        elif choice == "I":  # To display the instructions
+        elif choice == "I":
             display_instructions()
 
-        elif choice == "L":  # To display the leaderboard
+        elif choice == "L":
             display_leaderboard()
 
-        elif choice == "E":  # To exit the game
+        elif choice == "E":
             cprint("Exiting... Thanks for playing!", 'red', attrs = ["bold"])
             sys.exit()
 
-        else:  # If the player's choice isn't in the menu
+        else:
             print("Invalid Choice. Please try again!")
-            time.sleep(0.5)
+            time.sleep(0.1)
             clear_screen()
 
 if __name__ == '__main__':
